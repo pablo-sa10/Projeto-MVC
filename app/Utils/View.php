@@ -29,11 +29,11 @@ class View{
         //CHAVES DO ARRAY DE VARIÁVEL
         $keys = array_keys($vars);
         $keys = array_map(function($item){
-
+            return '{{'.$item.'}}';
         },$keys);
 
         //RETORNA O CONTEUDO RENDERIZADO
-        return $contentView;
+        return str_replace($keys, array_values($vars), $contentView);
     }
 
 

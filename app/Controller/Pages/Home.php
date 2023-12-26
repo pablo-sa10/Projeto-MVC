@@ -3,16 +3,24 @@
 namespace App\Controller\Pages;
 
 use \App\Utils\View;
+use \App\Model\Entity\Organization;
 
-class Home{
+class Home extends Page
+{
 
-    public static function getHome(){
-        return View::render('pages/home', [
-            'name' => 'Pablo',
-            'description' => 'Projeto MVC: https://youtu.be/TmeyoTNu748?si=o1mHOx1Jbq9mfHeL'
+    public static function getHome()
+    {
+        $obOrganization = new Organization;
+
+
+        //View da home
+        $content = View::render('pages/home', [
+            'name' => $obOrganization->name,
+            'description' => $obOrganization->description,
+            'site' => $obOrganization->site
         ]);
+
+        //Retorna a view da página
+        return parent::getPage('Pablo - Projeto Mvc - Home', $content);
     }
-
 }
-
-?>
