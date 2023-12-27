@@ -43,7 +43,7 @@ class Response
         
         switch($this->contentType){
             case 'text/html':
-                echo $this->contentType;
+                echo $this->content;
                 exit;
         }
     }
