@@ -9,12 +9,14 @@ use \App\Controller\Pages\Home;
 define('URL', 'http://10.10.2.99/Projeto-mvc');
 
 $obRouter = new Router(URL);
+
+//rota home
 $obRouter->get('/',[
     function(){
         return new Response(200, Home::getHome());
     }
 ]);
 
-$obRouter->run()->sendResponse();
+$obRouter->run()->sendResponse(); 
 
 ?>
