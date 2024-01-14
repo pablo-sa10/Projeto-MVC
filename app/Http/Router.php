@@ -34,6 +34,15 @@ class Router{
             }
         }
 
+        $params['variables'] = [];
+
+        $patternVariable = '/{{.*?}}/';
+        if(preg_match($patternVariable, $route, $matches)){
+            echo "<pre>";
+            print_r($matches);
+            echo "</pre>"; exit;
+        }
+
         $patternRoute = '/^'.str_replace('/','\/', $route). '$/';
         $this->routes[$patternRoute][$method] = $params;
     }
